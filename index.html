@@ -28,12 +28,12 @@
 			</section>
 
 			<section class="input-section">
-				<form action="index.html" method="post">
+				<form action="index.html" method="post" id="search-form">
 					<input type="text" placeholder="Name" name="name" id="name">
 					<input type="date" name="date" id="date">
+					<input type="text" placeholder="Meteorite Composition" name="Meteor-composition" id="meteor-composition">
 					<input type="number" placeholder="Min Size" name="min" id="min">
 					<input type="number" placeholder="Max Size" name="max" id="max">
-					<input type="text" placeholder="Tags" name="tags" id="tags" class="tags">
 					<button class="btn clear-btn" id="clear-btn" type="reset">Clear</button>
 					<button class="btn submit-btn" id="submit-btn"  type="submit">submit</button>
 				</form>
@@ -44,7 +44,7 @@
 				<table>
 
 					<tr>
-						<th><input type="checkbox" name="" id=""></th>
+						<th><input type="checkbox" name="" id="all-checkbox"></th>
 						<th>ID</th>
 						<th>Name</th>
 						<th>Year</th>
