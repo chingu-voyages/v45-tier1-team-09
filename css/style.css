@@ -158,7 +158,6 @@ table {
   border-collapse: collapse;
   border-radius: 5px;
   border: 1px solid #7575758e;
-
   text-align: center;
   
 }
@@ -191,7 +190,6 @@ td i:hover {
   background: #000;
   color: #fff;
 }
-
 
 /******************************************
 /* ADDITIONAL STYLES

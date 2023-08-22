@@ -41,21 +41,25 @@
 			</section>
 
 			<section class="table-section">
-				<table>
+				<table id="table">
+					<thead>
+						<tr>
+							<!-- <th><input type="checkbox" name="" id="all-checkbox"></th> -->
+							<th>ID</th>
+							<th>Name</th>
+							<th>Year</th>
+							<th>Meteorite Composition</th>
+							<th>Mass (g)</th>
+							<th>Latitude</th>
+							<th>Longitude</th>
+							<th></th>
+						</tr>
+					</thead>
 
-					<tr>
-						<th><input type="checkbox" name="" id="all-checkbox"></th>
-						<th>ID</th>
-						<th>Name</th>
-						<th>Year</th>
-						<th>Meteorite Composition</th>
-						<th>Size</th>
-						<th></th>
-						<th></th>
-						<th></th>
-					</tr>
-	
-					<tr>
+					<tbody>
+
+					</tbody>
+					<!-- <tr>
 						<td data-cell="input"><input type="checkbox" name="id-number" id="id"></td>	
 						<td data-cell="id">1</td>
 						<td data-cell="name">Jon</td>
@@ -125,7 +129,7 @@
 						<td>1-5 of 9</td>
 						<td><i class="fa-solid fa-angle-left"></td>
 						<td><i class="fa-solid fa-angle-right"></i></td>
-					</tr>
+					</tr> -->
 				</table>
 				
 			</section>
@@ -134,5 +138,6 @@
 		</div>
 
 		<script type="text/javascript" src="js/main.js"></script>
+		<script src="js/fetchData.js" defer></script>
 	</body>
 </html>
