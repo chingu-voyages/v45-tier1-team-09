@@ -77,11 +77,12 @@ Thanks to NASA and its partners for open sourcing this data. You can find more a
 
 ### Authors
 
-    - [Alex Wu](https://github.com/wu-coding)
-    - [Shervorn](https://github.com/HardoModo)
-    - [Kevin Swartwood](https://github.com/kevinswartwood)
-    - [Semsi Dogruer](https://github.com/semsi-dogruer)
-    - [Josh Catlett](https://github.com/xITSDUCKYx)
+  [Alex Wu](https://github.com/wu-coding)
+  [Shervorn](https://github.com/HardoModo)
+  [Kevin Swartwood](https://github.com/kevinswartwood)
+  [Semsi Dogruer](https://github.com/semsi-dogruer)
+  [Josh Catlett](https://github.com)
+    
 
 ##  Dependencies
 -
