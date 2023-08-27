@@ -60,11 +60,11 @@ Thanks to NASA and its partners for open sourcing this data. You can find more a
 
 Project Managers
   - [Kevin Swartwood](https://github.com/kevinswartwood)
-  - [Nevana Walker](https://github.com/)
+  - [Nevana](https://github.com/)
 
 Developers
   - [Alex Wu](https://github.com/wu-coding)
-  - [Shervorn Walker](https://github.com/HardoModo)
+  - [Shervorn](https://github.com/HardoModo)
   - [Semsi Dogruer](https://github.com/semsi-dogruer)
   - [Josh Catlett](https://github.com/xITSDUCKYx)
     
