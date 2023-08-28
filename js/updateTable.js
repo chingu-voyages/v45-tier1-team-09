@@ -2,8 +2,10 @@ import { extractYearFromISO, checkEmptyCell } from "./utils.js";
 
 var errorMsg = document.getElementById("error-msg")
 
+//meteorrow returns strings make sure ===
+//Clean up user inputting zero also gets strings
 export function searchData(meteorData, searchInput) {
-
+    
     var results = meteorData.filter((meteorRow) => {
         var checkName = meteorRow.name.toLowerCase() == searchInput.name || searchInput.name == ""
 
@@ -11,9 +13,9 @@ export function searchData(meteorData, searchInput) {
         var checkDate = year >= searchInput.minDate && year <= searchInput.maxDate || (searchInput.minDate == 0 && searchInput.maxDate == 0)
 
         var checkComposition = meteorRow.recclass.toLowerCase() == searchInput.composition || searchInput.composition == ""
-        var checkRange = meteorRow.mass >= searchInput.min && meteorRow.mass <= searchInput.max || (searchInput.minSize == 0 && searchInput.maxSize == 0)
-
-        return checkName && checkDate && checkComposition && checkRange
+        var checkSize = parseInt(meteorRow.mass) >= searchInput.minSize && parseInt(meteorRow.mass) <= searchInput.maxSize || (searchInput.minSize == 0 && searchInput.maxSize == 0)
+       
+        return checkName && checkDate && checkComposition && checkSize
     });
 
     if (results.length == 0) {
@@ -23,7 +25,6 @@ export function searchData(meteorData, searchInput) {
     } else { return results }
 }
 
-//Alphabet order is in reverse because it appends to pagination
 
 export function updateTableJson(searchData) {
     if (searchData != null) {

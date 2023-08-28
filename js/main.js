@@ -1,20 +1,28 @@
 import UserInput from "./user-input.js";
-import { getApiData, getCsvData } from "./fetchData.js";
 import { updateTableJson, searchData, clearTable } from "./updateTable.js";
+import { convertCsvJson } from "./utils.js";
 
-
-
+const API = "https://data.nasa.gov/resource/gh4g-9sfh.json"
+const CSV = "assets/Meteorite_Landings.csv"
 var meteorData;
 
 //Todo: Read from CSV
 window.addEventListener("load", async () => {
-    try {   
-       meteorData = await getApiData()
-    } catch (error) {
-        console.log("Failed to retrieve data fom Api, using CSV instead")
-        console.log(error)
-        
-        meteorData = await getCsvData()
+    var response
+    var responseText
+    try {
+        response = await fetch(API)
+        meteorData = await response.json();
+    } catch (apiError) {
+        console.log("Failed to retrieve data fom Api, using CSV instead\n" +  apiError)
+        try {
+            response = await fetch(CSV)
+            responseText = await response.text()
+            meteorData = convertCsvJson(responseText)
+            console.log(meteorData)
+        } catch (csvError) {
+            console.log("Failed to retrieve data from CSV \n" + csvError)
+        }
     }
 })
 
@@ -46,41 +54,35 @@ allCheckbox.addEventListener('change', () => {
 });
 
 
-var errorMsg =  document.getElementById("error-msg")
+var errorMsg = document.getElementById("error-msg")
 const clearBtn = document.getElementById("clear-btn")
 const searchForm = document.getElementById("search-form")
 const searchInput = searchForm.querySelectorAll("input")
 
 
 clearBtn.addEventListener('click', () => {
-    errorMsg.style.setProperty("display" , "none")
+    errorMsg.style.setProperty("display", "none")
     clearTable()
     searchForm.reset()
-    // for (let i = 0; i < searchInput.length; i++) {
-    //     if(searchInput.type == "text"){
-    //         searchInput[i].value = ''
-    //     }else if(searchInput.type == "number"){
-    //         searchInput[i].value = 0
-    //     }
-    // }
 })
 
 //Might want to seperate error message into seperate functions hide/display?
 
 const submitBtn = document.getElementById("submit-btn")
-submitBtn.addEventListener('click', () => {  
-    errorMsg.style.setProperty("display" , "none")
-    
+submitBtn.addEventListener('click', () => {
+    errorMsg.style.setProperty("display", "none")
+
     var searchValues = new UserInput(searchInput)
     var validate = searchValues.validate()
-    
-    if (validate  == "") {
+
+    if (validate == "") {
         var searchResults = null
         searchResults = searchData(meteorData, searchValues)
         updateTableJson(searchResults)
-    }else{
-       errorMsg.innerHTML=validate
-       errorMsg.style.setProperty("display" , "block")
+    } else {
+        clearTable()
+        errorMsg.innerHTML = validate
+        errorMsg.style.setProperty("display", "block")
     }
 })
 
