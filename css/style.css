@@ -80,6 +80,14 @@ form input {
   padding-bottom:7px;
 }
 
+.error{
+  display:none;
+}
+
+.errorShow{
+  display:block;
+}
+
 input {
   border-radius: 5px;
   border: 1px solid #7575758e;

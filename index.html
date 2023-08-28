@@ -1,48 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-  	<meta charset="utf-8">
-  	<meta name="description" content="Your description goes here">
-  	<meta name="keywords" content="one, two, three">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="Your description goes here">
+	<meta name="keywords" content="one, two, three">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-		
-		<title>Blank Template</title>
 
-		<!-- external CSS link -->
-		<link rel="stylesheet" href="css/normalize.css">
-		<link rel="stylesheet" href="css/style.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	</head>
-	<body>
-		<div class="main-container">
-			
-			<section class="top-section">
-				
-				<input type="text" placeholder="History" name="History" id="history">
-				<div class="mode-container">
-					<span class="display-mode" id="display-mode">Light Mode</span>
-					<i class="fa-solid fa-toggle-on " id="dark-mode-toggle"></i>
-					
-				</div>
+	<title>Blank Template</title>
 
-			</section>
+	<!-- external CSS link -->
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+		integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+		integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
 
-			<section class="input-section">
-				<form action="index.html" method="post" id="search-form">
-					<input type="text" placeholder="Name" name="name" id="name">
-					<input type="date" name="date" id="date">
-					<input type="text" placeholder="Meteorite Composition" name="Meteor-composition" id="meteor-composition">
-					<input type="number" placeholder="Min Size" name="min" id="min">
-					<input type="number" placeholder="Max Size" name="max" id="max">
-					<button class="btn clear-btn" id="clear-btn" type="reset">Clear</button>
-					<button class="btn submit-btn" id="submit-btn"  type="submit">submit</button>
-				</form>
-				
-			</section>
+<body>
+	<div class="main-container">
 
-			<section class="table-section">
-				<table>
+		<section class="top-section">
 
+			<input type="text" placeholder="History" name="History" id="history">
+			<div class="mode-container">
+				<span class="display-mode" id="display-mode">Light Mode</span>
+				<i class="fa-solid fa-toggle-on " id="dark-mode-toggle"></i>
+
+			</div>
+
+		</section>
+
+		<section class="input-section">
+			<form action="index.html" method="post" id="search-form">
+				<input type="text" placeholder="Name" name="name" id="name">
+				<input type="number" placeholder="Starting Date" name="minDate" id="min-date">
+				<input type="number" placeholder="Ending Date" name="maxDate" id="max-date">
+				<input type="text" placeholder="Meteorite Composition" name="composition">
+				<input type="number" placeholder="Min Size" name="minSize" id="min-size">
+				<input type="number" placeholder="Max Size" name="maxSize" id="max-size">
+
+			</form>
+			<!-- Submit buttons inside forms automatically refresh page. -->
+			<button class="btn clear-btn" id="clear-btn" type="reset">Clear</button>
+			<button class="btn submit-btn" id="submit-btn" type="submit">Submit</button>
+		</section>
+		<p id="error-msg" class="error"></p>
+		<section class="table-section">
+			<table>
+				<thead>
 					<tr>
 						<th><input type="checkbox" name="" id="all-checkbox"></th>
 						<th>ID</th>
@@ -54,67 +62,9 @@
 						<th></th>
 						<th></th>
 					</tr>
-	
-					<tr>
-						<td data-cell="input"><input type="checkbox" name="id-number" id="id"></td>	
-						<td data-cell="id">1</td>
-						<td data-cell="name">Jon</td>
-						<td data-cell="year">Snow</td>
-						<td data-cell="meteorite">26</td>
-						<td data-cell="size">Jon Snow</td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-	
-					<tr>
-						<td data-cell="input"><input type="checkbox" name="id-number" id="id"></td>
-						<td data-cell="id">2</td>
-						<td data-cell="name">Cersei</td>
-						<td data-cell="year">Lannister</td>
-						<td data-cell="meteorite">33</td>
-						<td data-cell="size">Cersei Lannister</td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-	
-					<tr>
-						<td data-cell="input"><input type="checkbox" name="id-number" id="id"></td>
-						<td data-cell="id">3</td>
-						<td data-cell="name">Jame</td>
-						<td data-cell="year">Lannister</td>
-						<td data-cell="meteorite">24</td>
-						<td data-cell="size">Jamie Lannister</td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-	
-					<tr>
-						<td data-cell="input"><input type="checkbox" name="id-number" id="id"></td>
-						<td data-cell="id">4</td>
-						<td data-cell="name">Arya</td>
-						<td data-cell="year">Stark</td>
-						<td data-cell="meteorite">33</td>
-						<td data-cell="size">Arya Stark</td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-	
-					<tr>
-						<td data-cell="input"><input type="checkbox" name="id-number" id="id"></td>
-						<td data-cell="id">5</td>
-						<td data-cell="name">Daenerys</td>
-						<td data-cell="year">Targaryen</td>
-						<td data-cell="meteorite">18</td>
-						<td data-cell="size">Daenerys Targaryen</td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-
+				</thead>
+				<tbody id="table-content"> </tbody>
+				<tfoot>
 					<tr>
 						<td></td>
 						<td></td>
@@ -126,13 +76,17 @@
 						<td><i class="fa-solid fa-angle-left"></td>
 						<td><i class="fa-solid fa-angle-right"></i></td>
 					</tr>
-				</table>
-				
-			</section>
+				</tfoot>
+			</table>
 
-			<button class="btn summary-btn" id="summary-btn">Summary</button>
-		</div>
+		</section>
 
-		<script type="text/javascript" src="js/main.js"></script>
-	</body>
+		<button class="btn summary-btn" id="summary-btn">Summary</button>
+	</div>
+
+	<script type="module" src="js/main.js"></script>
+
+
+</body>
+
 </html>
