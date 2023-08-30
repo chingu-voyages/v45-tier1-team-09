@@ -1,4 +1,5 @@
-import displayTable from "./displayTable.js";
+import displayTable from "./displayTable.js"
+
 
 displayTable(document.querySelector("table"));
 /* async function getData() {
