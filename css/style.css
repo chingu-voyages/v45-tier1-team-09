@@ -136,6 +136,8 @@ input[type="date"] {
 /* ---------Table--------- */
 .table-section {
   max-width: 100%;
+  overflow: scroll;
+  max-height:30em;
 }
 
 table {
@@ -231,3 +233,4 @@ body {
 #footer img {
   max-width: 50px;
 }
+
