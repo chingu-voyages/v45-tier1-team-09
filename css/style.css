@@ -80,12 +80,8 @@ form input {
   padding-bottom:7px;
 }
 
-.error{
-  display:none;
-}
-
-.errorShow{
-  display:block;
+.summary {
+  display: none;
 }
 
 input {
@@ -166,12 +162,8 @@ table {
   border-collapse: collapse;
   border-radius: 5px;
   border: 1px solid #7575758e;
-
   text-align: center;
-  
 }
-
-
 
 th,
 td {
@@ -210,4 +202,21 @@ td i:hover {
   .input-section {
     overflow-x: scroll;  
   }
+}
+
+
+/******************************************
+/* INIT HIDDEN ELEMENTS
+/*******************************************/
+
+#meteor-table{
+  display: table
+}
+
+#error-msg{
+  display: none
+}
+
+#summary{
+  display:none
 }

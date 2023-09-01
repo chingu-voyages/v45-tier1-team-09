@@ -8,3 +8,6 @@ Row 64: Missing OBJECTID property.
 Row 72: Missing OBJECTNAME property.
 Row 81: Missing OBJECTID property.
 Row 90: Missing OBJECTNAME property.
+
+//Problems is that JSON numbers is string
+//Also if user doesnt enter anything in number field its still registers as ''

@@ -1,6 +1,6 @@
 import { checkRange } from "./utils.js";
 
-class UserInput {
+class SearchInput {
 
     constructor(inputContainer) {
         this.name = "";
@@ -9,7 +9,7 @@ class UserInput {
         this.composition = "";
         this.minSize = 0;
         this.maxSize = 0
-
+        
         inputContainer.forEach(element => {
             this[element.name] = element.value
             if (element.type == "text") {
@@ -41,4 +41,4 @@ class UserInput {
     }
 }
 
-export default UserInput;
+export default SearchInput;

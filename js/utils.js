@@ -46,4 +46,19 @@ function checkRange(min,max){
     }
 }
 
-export { convertCsvJson, checkEmptyCell, extractYearFromISO, checkRange }
+//Might want to set default style in CSS
+function toggleVisibility(element, property){
+    if(element.style.display == "none" || element.style.display == ''){
+        element.style.setProperty("display", property)
+    }else{
+        element.style.setProperty("display", "none")
+    }  
+}
+
+
+function clearElement(element){
+    element.innerHTML = ""
+}
+
+
+export { convertCsvJson, checkEmptyCell, extractYearFromISO, checkRange, toggleVisibility, clearElement }
