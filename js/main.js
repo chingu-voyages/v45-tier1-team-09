@@ -1,4 +1,5 @@
-import displayTable from "./displayTable.js";
+import displayTable from "./displayTable.js"
+
 
 displayTable(document.querySelector("table"));
 /* async function getData() {
@@ -65,5 +66,7 @@ clearBtn.addEventListener("click", () => {
     i.value = "";
   }
 });
+
+
 
 //Input Validation and Error Message

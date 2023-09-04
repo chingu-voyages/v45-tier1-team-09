@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary</title>
+</head>
+<body>
+    <header id="header">
+        <h1>Meteorite Strike Explorer</h1>
+      </header>
+  
+      <div class="main-container">
+        <section class="top-section">
+          <input type="text" placeholder="History" name="History" id="history" />
+          <div class="mode-container">
+            <span class="display-mode" id="display-mode">Light Mode</span>
+            <i class="fa-solid fa-toggle-on" id="dark-mode-toggle"></i>
+          </div>
+        </section>
+  
+        
+        <div class="chart-container">
+            
+            <div id="my_dataviz"></div>
+
+        </div>
+        
+  
+        <a href="index.html"  class="btn summary-btn" id="summary-btn">Summary</a>
+      </div>
+  
+      <footer id="footer">
+        <a href="https://github.com/chingu-voyages/v45-tier1-team-09">
+          <img src="/img/GitHub_icon.png" alt="GitHub Repository" />
+        </a>
+      </footer>
+      
+
+
+
+    <script type="module" src="js/histogram.js"></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
+</body>
+</html>
