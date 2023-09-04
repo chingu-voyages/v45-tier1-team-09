@@ -120,7 +120,7 @@ searchResults.reverse()
 updateTable(searchResults, allCheckbox)
 })
 
-
+//Todo: History Maybe?
 
 // Utils 
 function toggleVisibility(element, property) {

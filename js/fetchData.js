@@ -54,8 +54,8 @@ function convertCsvToObject(meteorData) {
                 value = "N/A"
             }
             entry[key] = value
-            meteorJSON.push(entry)
         } 
+        meteorJSON.push(entry)
     }
     return meteorJSON
 }
