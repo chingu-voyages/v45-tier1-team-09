@@ -1,31 +1,38 @@
-import SearchInput from "./search-input.js";
-import { updateTableJson, searchData, getSummary } from "./updateTable.js";
-import { convertCsvJson, toggleVisibility, clearElement } from "./utils.js";
+import { fetchAPI, fetchCSV } from "./fetchData.js";
+import {SearchInput, validate, searchData} from "./inputSearch.js";
+import  updateTable from "./displayTable.js";
+import updateSummary from "./displaySummary.js"
 
 const API = "https://data.nasa.gov/resource/gh4g-9sfh.json"
 const CSV = "assets/Meteorite_Landings.csv"
+
 var meteorData;
+var filterData;
 
-
-//Todo: Read from CSV
 window.addEventListener("load", async () => {
-    var response
-    var responseText
     try {
-        response = await fetch(API)
-        meteorData = await response.json();
+        meteorData = await fetchAPI(API)
     } catch (apiError) {
-        console.log("Failed to retrieve data fom Api, using CSV instead\n" +  apiError)
+        console.log(apiError)
         try {
-            response = await fetch(CSV)
-            responseText = await response.text()
-            meteorData = convertCsvJson(responseText)
-            console.log(meteorData)
+        meteorData = await fetchCSV(CSV)     
         } catch (csvError) {
-            console.log("Failed to retrieve data from CSV \n" + csvError)
+            console.log(csvError)
         }
     }
 })
+
+//Todo: Sorting by category
+// document.addEventListener('DOMContentLoaded', ()=> {
+//     const headerRow = querySelectorAll("header-row")
+//     headerRow.forEach((header) => {
+//         header.addEventListener("click", () => {
+//             var category = header.getAttribute("name") 
+//             searchResults.sort((a,b) => a.category - b.category)
+//             //searchResults.sort((a, b) => a.category.localeCompare(b.category));
+//         })
+//     })
+// })
 
 // Dark Mode
 const darkModeToggle = document.getElementById('dark-mode-toggle');
@@ -49,12 +56,10 @@ const allCheckbox = document.getElementById("all-checkbox")
 const checkboxList = document.getElementsByName("data-row");
 
 allCheckbox.addEventListener('change', () => {
-  //Make sure that there is something in table  
     checkboxList.forEach((item, index) => {
-        if(allCheckbox.checked){
+        if (allCheckbox.checked) {
             item.checked = true
-          
-        }else{
+        } else {
             item.checked = false
         }
     })
@@ -62,15 +67,9 @@ allCheckbox.addEventListener('change', () => {
 
 
 
-const meteorTable = document.getElementById("meteor-table")
-const meteorTableBody = document.getElementById("table-content")
-
-
-const errorMsg = document.getElementById("error-msg")
 const clearBtn = document.getElementById("clear-btn")
 const searchForm = document.getElementById("search-form")
-const searchInput = searchForm.querySelectorAll("input")
-
+const errorMsg = document.getElementById("input-error-msg")
 
 clearBtn.addEventListener('click', () => {
     toggleVisibility(errorMsg, "none")
@@ -78,47 +77,61 @@ clearBtn.addEventListener('click', () => {
     searchForm.reset()
 })
 
-//Might want to seperate error message into seperate functions hide/display?
-//Submit calls table back?
-//If we search same thing again prolem?
-const summary = document.getElementById("summary")
-const submitBtn = document.getElementById("submit-btn")
 
+const summarySection = document.getElementById("summary-section")
+const submitBtn = document.getElementById("submit-btn")
+const searchInput = searchForm.querySelectorAll("input")
+var searchResults = null
 submitBtn.addEventListener('click', () => {
 
-    if (meteorTable.style.display == "none"){
-        toggleVisibility(meteorTable, "block")
-        toggleVisibility(summary, "none")
+    if (tableSection.style.display == "none") {
+        toggleVisibility(tableSection, "block")
+        toggleVisibility(summarySection, "none")
+        allCheckbox.checked = false
     }
 
     toggleVisibility(errorMsg, "none")
-    summaryBtn.disabled = false
-   
-    var searchValues = new SearchInput(searchInput)
-    var validate = searchValues.validate()
 
-    if (validate == "") {
-        var searchResults = null
+    var searchValues = new SearchInput(searchInput)
+    var valid = validate(searchValues)
+    
+    if ( valid == "") {
         searchResults = searchData(meteorData, searchValues)
-        updateTableJson(searchResults,allCheckbox)
+        updateTable(searchResults, allCheckbox)
     } else {
-        clearElement(meteorTableBody)
-        errorMsg.innerHTML = validate
+        errorMsg.innerHTML = valid
         toggleVisibility(errorMsg, "block")
     }
 })
 
 const summaryBtn = document.getElementById("summary-btn")
-//Disable summary after clicking twice?
+const tableSection = document.getElementById("table-section")
+const meteorTableBody = document.getElementById("table-content")
 
 summaryBtn.addEventListener('click', () => {
-    toggleVisibility(meteorTable, "none")
-    toggleVisibility(summary, "block")
-    getSummary()
-    summaryBtn.disabled = true
-    //Prevent from double clicking
-    // if(summary.style.display == "none" || summary.style.display == ''){
-    //     toggleVisibility(summary, "block")
-    // }
+    toggleVisibility(tableSection, "none")
+    toggleVisibility(summarySection, "block")
+    updateSummary()
 })
 
+const headername = document.getElementById("header-name")
+headername.addEventListener("click",  () => {
+searchResults.reverse()
+updateTable(searchResults, allCheckbox)
+})
+
+
+
+// Utils 
+function toggleVisibility(element, property) {
+    if (element.style.display == "none" || element.style.display == '') {
+        element.style.setProperty("display", property)
+    } else {
+        element.style.setProperty("display", "none")
+    }
+}
+
+
+export default function clearElement(element) {
+    element.innerHTML = ""
+}

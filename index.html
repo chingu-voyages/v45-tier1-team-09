@@ -47,20 +47,18 @@
 			<button class="btn clear-btn" id="clear-btn" type="reset">Clear</button>
 			<button class="btn submit-btn" id="submit-btn" type="submit">Submit</button>
 		</section>
-		<p id="error-msg"></p>
-		<section class="table-section">
+		<p id="input-error-msg"></p>
+		<section id="table-section">
+			
 			<table id="meteor-table">
 				<thead>
-					<tr>
+					<tr id="header-row">
 						<th><input type="checkbox" name="" id="all-checkbox"></th>
 						<th>ID</th>
 						<th>Name</th>
 						<th>Year</th>
 						<th>Meteorite Composition</th>
 						<th>Size</th>
-						<th></th>
-						<th></th>
-						<th></th>
 					</tr>
 				</thead>
 				<tbody id="table-content"> </tbody>
@@ -78,20 +76,23 @@
 					</tr>
 				</tfoot>
 			</table>
-
+			<button class="btn summary-btn" id="summary-btn">Summary</button>
 		</section>
-		<section></section> 
+		<section id="summary-section"> 
 			<div id="summary">
 				<p id="average"> Average Mass </p>
 				<p id="total-hits"> Total Hits </p>
 			</div>
+			
 		</section>
-		<button class="btn summary-btn" id="summary-btn">Summary</button>
+	
 	</div>
 
 	<script type="module" src="js/main.js"></script>
-
-
+	<script type="module" src="js/displayTable.js"></script>
+	<script type="module" src="js/fetchData.js"></script>
+	<script type="module" src="js/displaySummary.js"></script>
+	<script type="module" src="js/inputSearch.js"></script>
 </body>
 
 </html>

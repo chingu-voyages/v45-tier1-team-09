@@ -5,18 +5,17 @@
 
 /* Clear fix hack */
 .clearfix:after {
-     content: ".";
-     display: block;
-     clear: both;
-     visibility: hidden;
-     line-height: 0;
-     height: 0;
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
 }
 
 .clear {
-	clear: both;
+  clear: both;
 }
-
 
 /* :root {
   --main-border-size
@@ -28,13 +27,11 @@
 /*******************************************/
 
 body {
-  font-family: Georgia, 'Times New Roman', Times, sans-serif;
-  
+  font-family: Georgia, "Times New Roman", Times, sans-serif;
+
   flex-basis: 90%;
   display: flex;
 }
-
-
 
 /******************************************
 /* LAYOUT
@@ -46,7 +43,7 @@ body {
 .main-container {
   display: flex;
   flex-direction: column;
-  
+
   justify-content: center;
   width: 90vw;
   margin: 0 auto;
@@ -54,7 +51,7 @@ body {
 
 section,
 section form {
-  display:flex;
+  display: flex;
   justify-content: space-between;
   width: 100%;
 }
@@ -64,8 +61,7 @@ section {
 }
 
 .fa-toggle-on {
- color: blue;
-
+  color: blue;
 }
 
 /* ------------Input------------ */
@@ -76,20 +72,14 @@ form input {
 }
 
 .input-section {
-  
-  padding-bottom:7px;
-}
-
-.summary {
-  display: none;
+  padding-bottom: 7px;
 }
 
 input {
   border-radius: 5px;
   border: 1px solid #7575758e;
-  
-  padding: .2em;
-  
+
+  padding: 0.2em;
 }
 
 input:hover,
@@ -98,7 +88,6 @@ input:focus {
 }
 
 input[type="text"] {
- 
   min-width: 100px;
   flex-shrink: 3;
 }
@@ -117,12 +106,11 @@ input[type="date"] {
   border: 1px solid blue;
   border-radius: 5px;
   background-color: #fff;
-  padding: .4em 1.5em;
+  padding: 0.4em 1.5em;
   text-transform: capitalize;
   align-self: flex-end;
-  margin-left: .7em;
+  margin-left: 0.7em;
 }
-
 
 .clear-btn {
   color: blue;
@@ -139,22 +127,15 @@ input[type="date"] {
   color: #fff;
 }
 
-
-
-
-
 .btn:hover,
 .btn:focus {
-  opacity: .7;
+  opacity: 0.7;
   box-shadow: -1px 1px #a09e9e;
-
 }
 
 /* ---------Table--------- */
 .table-section {
-max-width: 100%;
-
-
+  max-width: 100%;
 }
 
 table {
@@ -162,12 +143,12 @@ table {
   border-collapse: collapse;
   border-radius: 5px;
   border: 1px solid #7575758e;
+
   text-align: center;
 }
 
 th,
 td {
-
   border-radius: 5px;
   border-bottom: 1px solid #7575758e;
   padding: 1rem;
@@ -178,13 +159,12 @@ td {
 } */
 
 td i {
-  padding:1em;
+  padding: 1em;
 }
 
 td i:hover {
   cursor: pointer;
   color: blue;
-    
 }
 
 .dark-mode {
@@ -192,31 +172,70 @@ td i:hover {
   color: #fff;
 }
 
-
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
 
-@media (max-width:800px) {
+@media (max-width: 800px) {
   .table-section,
   .input-section {
-    overflow-x: scroll;  
+    overflow-x: scroll;
   }
 }
 
+/* Box Model Hack */
+* {
+  box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.clear {
+  clear: both;
+}
 
 /******************************************
-/* INIT HIDDEN ELEMENTS
+/* BASE STYLES
 /*******************************************/
 
-#meteor-table{
-  display: table
+body {
+  font-family: Georgia, "Times New Roman", Times, sans-serif;
+
+  display: flex;
+  flex-direction: column; /* Added */
+  align-items: center; /* Center horizontally */
+  justify-content: space-between; /* Added */
+  min-height: 100vh; /* Added */
 }
 
-#error-msg{
-  display: none
+/******************************************
+/* LAYOUT
+/*******************************************/
+
+/* Footer */
+#footer {
+  text-align: center;
+  margin-top: auto; /* Pushes the footer to the bottom */
+  padding: 1em;
+  background-color: #f5f5f5;
 }
 
-#summary{
+#footer img {
+  max-width: 50px;
+}
+
+/******************************************
+/* Visibility
+/*******************************************/
+
+#summary-section{
   display:none
-}
+}  
