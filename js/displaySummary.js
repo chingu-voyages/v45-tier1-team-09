@@ -1,4 +1,4 @@
-export default function updateSummary() {
+export default function updateSummary(meteorData) {
     const tableRow = document.querySelectorAll("#meteor-row")
     const displayAverage = document.getElementById("average")
     const displayTotalHits = document.getElementById("total-hits")
@@ -25,9 +25,7 @@ export default function updateSummary() {
         displayTotalHits.innerHTML = "Total Hits is: " + totalHits
     }else{
         displayAverage.innerHTML = "Please select at least one row to summarize"
+        displayTotalHits.innerHTML = ""
     }
-    
 }
-
-//Histogram
 

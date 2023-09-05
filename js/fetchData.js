@@ -31,8 +31,6 @@ function addTypeToObject(key, value) {
     }
 }
 
-
-
 //Because it splits at "," it messes up Geolocation data, but not relevant since we dont display that info.
 
 function convertCsvToObject(meteorData) {
