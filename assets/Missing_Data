@@ -1,0 +1,13 @@
+Row 13: Missing OBJECTID and OBJECTNAME properties.
+Row 14: Missing OBJECTNAME property.
+Row 21: Missing OBJECTID property.
+Row 38: Missing OBJECTNAME property.
+Row 44: Missing OBJECTID property.
+Row 55: Missing OBJECTNAME property.
+Row 64: Missing OBJECTID property.
+Row 72: Missing OBJECTNAME property.
+Row 81: Missing OBJECTID property.
+Row 90: Missing OBJECTNAME property.
+
+//Problems is that JSON numbers is string
+//Also if user doesnt enter anything in number field its still registers as ''

@@ -231,3 +231,11 @@ body {
 #footer img {
   max-width: 50px;
 }
+
+/******************************************
+/* Visibility
+/*******************************************/
+
+#summary-section{
+  display:none
+}  
