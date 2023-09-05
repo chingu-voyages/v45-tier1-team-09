@@ -11,7 +11,7 @@
 
 Meteorite strikes occur when the orbit of a meteorite travels close enough to the Earth to be captured by its gravity field. The U.S. National Aeronautics & Space Administration (NASA) maintains a dataset of all known (>45K) meteorite strikes and sponsors research on these events.
 
-![meteorites](https://www.bing.com/images/create/flaming-meteorites-headed-toward-earth-seen-from-s/64ea2bff66f44bb6a44e9db33eed9204?id=1dPjbiwj4pgyxlGFcjHG0Q%3d%3d&view=detailv2&idpp=genimg&FORM=GCRIDP&mode=overlay)
+![meteorites](assets/meteorite_picture.jpg)
 
 ### 21st Century Meteorite Strikes
 
