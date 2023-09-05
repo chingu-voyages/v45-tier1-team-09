@@ -6,6 +6,7 @@ export async function fetchAPI(API) {
 
 export async function fetchCSV(CSV) {
     var response = await fetch(CSV)
+    //  return convertCsvToObject(await response.text())
     return convertCsvToObject(await response.text())
 }
 
@@ -13,6 +14,14 @@ export async function fetchCSV(CSV) {
 function addTypeToObject(key, value) {
     if ((key === "name" || key === "recclass")) {
         return value != undefined ? value.toLowerCase() : "N/A"
+    } else if (key === "geolocation") {
+        if (value.hasOwnProperty("latitude")) {
+            value.latitude = parseFloat(value.latitude)
+        }
+        if (value.hasOwnProperty("longitude")) {
+            value.longitude = parseFloat(value.longitude)
+        }
+        return value
     } else if (key === "year") {
         return value != undefined ? extractYearFromISO(value) : "N/A"
     } else if (key === "mass" || key == "id") {
@@ -48,13 +57,13 @@ function convertCsvToObject(meteorData) {
                 } else if (key == "mass" || key == "id") {
                     value = parseInt(value)
                     //entry[headers[j]] = tableCell[j]
-                } 
-                
-            }else {
+                }
+
+            } else {
                 value = "N/A"
             }
             entry[key] = value
-        } 
+        }
         meteorJSON.push(entry)
     }
     return meteorJSON

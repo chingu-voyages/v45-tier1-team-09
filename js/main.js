@@ -6,7 +6,7 @@ import updateSummary from "./displaySummary.js"
 const API = "https://data.nasa.gov/resource/gh4g-9sfh.json"
 const CSV = "assets/Meteorite_Landings.csv"
 
-var meteorData;
+var meteorData = "";
 var filterData;
 
 window.addEventListener("load", async () => {
