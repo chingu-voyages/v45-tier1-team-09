@@ -110,6 +110,7 @@ input[type="date"] {
   text-transform: capitalize;
   align-self: flex-end;
   margin-left: 0.7em;
+  text-decoration:none;
 }
 
 .clear-btn {
@@ -234,3 +235,6 @@ body {
   max-width: 50px;
 }
 
+.chart {
+  background: green;
+}

@@ -4,30 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Summary</title>
+     <!-- external CSS link -->
+     <link rel="stylesheet" href="css/normalize.css" />
+     <link rel="stylesheet" href="css/style.css" />
+     <link
+       rel="stylesheet"
+       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+       integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+       crossorigin="anonymous"
+       referrerpolicy="no-referrer" />
 </head>
 <body>
     <header id="header">
         <h1>Meteorite Strike Explorer</h1>
       </header>
   
-      <div class="main-container">
-        <section class="top-section">
-          <input type="text" placeholder="History" name="History" id="history" />
-          <div class="mode-container">
-            <span class="display-mode" id="display-mode">Light Mode</span>
-            <i class="fa-solid fa-toggle-on" id="dark-mode-toggle"></i>
-          </div>
+    
         </section>
   
         
-        <div class="chart-container">
-            
-            <div id="my_dataviz"></div>
+        
+          
+          
+          <div id="chart">
 
-        </div>
+            <h1 class="chart-title">Meteor Strikes by 
+              <span>
+                <select name="data-type" id="data-type">
+                  <option value="">Select</option>
+                  <option value="year">Year</option>
+                  <option value="reclass">Composition</option>
+                 
+                </select> 
+            </span></h1>   
+            
+            <div id="yearChart"></div>
+            
+          </div>
+
+          
+
+        
         
   
-        <a href="index.html"  class="btn summary-btn" id="summary-btn">Summary</a>
+        <a href="index.html"  class="btn summary-btn" id="summary-btn">Go back</a>
       </div>
   
       <footer id="footer">
