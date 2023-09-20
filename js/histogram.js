@@ -1,20 +1,36 @@
-// export default function convertCsvToLocation(){   
-// const lines = csvData.split("\n"); // Split data into lines
-//   const headers = lines[0].split(","); // Extract headers
+const yearChart = new Chart(document.getElementById("year-chart"), {
   
-//   const data = [];
-//   for (let i = 1; i < lines.length; i++) {
-//     const values = lines[i].split(",");
-//     if (values.length === headers.length) {
-//       const entry = {};
-//       for (let j = 0; j < headers.length; j++) {
-//         entry[headers[j]] = values[j];
-//       }
-//       data.push(entry);
-//     }
-//   }
-//   histogramPlotPoints(data);
-// }
+    type: 'bar',
+    data: {
+      labels: [],
+      datasets: [{
+        label: 'Meteor Strikes per Year',
+        data:  [],
+      }]
+    }
+});
+
+const compositionChart = new Chart(document.getElementById("composition-chart"), {
+  
+  type: 'bar',
+  data:  {
+    labels: [],
+    datasets: [{
+      label: 'Meteor Composition by Year',
+      data: [],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  },
+});
+
+
 
 export default function histogramPlotPoints(data) {
   const yearCount = {}
@@ -29,7 +45,7 @@ export default function histogramPlotPoints(data) {
         yearCount[year]++
       }
 
-    const composition = element.recclass
+    const composition = element.recclass;
       if (!compCount[composition]) {
         compCount[composition] = 1
       } else {
@@ -51,8 +67,23 @@ export default function histogramPlotPoints(data) {
     }
   }
     
-console.log(yearPlotPoints)
-console.log(compositionPlotPoints)
-}
+// Display and update bar graph
 
-//Function to display plotpoints
+// Parse the array of year count objects.
+const years = yearPlotPoints.map((object) => object.year);
+const yearCounts = yearPlotPoints.map((object) => object.count);
+
+const composition = compositionPlotPoints.map((object) => object.composition);
+const compCounts = compositionPlotPoints.map((object) => object.count);
+
+// Update the Chart object with the parsed data.
+yearChart.data.labels = years;
+yearChart.data.datasets[0].data = yearCounts;
+
+compositionChart.data.labels = composition;
+compositionChart.data.datasets[0].data = compCounts;
+
+// Update the chart.
+yearChart.update();
+compositionChart.update();
+}

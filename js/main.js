@@ -8,12 +8,10 @@ const API = "https://data.nasa.gov/resource/gh4g-9sfh.json"
 const CSV = "assets/Meteorite_Landings.csv"
 
 var meteorData;
-var filterData;
 
 document.addEventListener("DOMContentLoaded", async () => {
     try {
         meteorData = await fetchAPI(API)
-        histogramPlotPoints(meteorData)
     } catch (apiError) {
         console.log(apiError)
         try {
@@ -23,18 +21,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     }
 })
-
-//Todo: Sorting by category
-// document.addEventListener('DOMContentLoaded', ()=> {
-//     const headerRow = querySelectorAll("header-row")
-//     headerRow.forEach((header) => {
-//         header.addEventListener("click", () => {
-//             var category = header.getAttribute("name") 
-//             searchResults.sort((a,b) => a.category - b.category)
-//             //searchResults.sort((a, b) => a.category.localeCompare(b.category));
-//         })
-//     })
-// })
 
 // Dark Mode
 const darkModeToggle = document.getElementById('dark-mode-toggle');
@@ -117,8 +103,6 @@ summaryBtn.addEventListener('click', () => {
     updateSummary()
     histogramPlotPoints(meteorData)
 })
-
-//Todo: History Maybe?
 
 // Utils 
 function toggleVisibility(element, property) {

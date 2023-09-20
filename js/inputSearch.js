@@ -15,7 +15,15 @@ export class SearchInput {
             }
         });
     }
+   
+    fillForm(inputContainer){
+        keys = Object.keys(this)
+        for( i = 0; i < keys.length; i++){
+            this.keys[i] == inputContainer[i].innerHTML
+        }
+    }
 }
+
 
 export function validate(searchInput){
         var errorMessage = "";
@@ -62,8 +70,8 @@ export function searchData(meteorData, searchInput) {
         return checkName && checkDate && checkComposition && checkSize
     });
 
-    if (results.length == meteorData.length) {
-        errorMsg.innerHTML = "No matching property found, displaying all entries"
+    if (results.length == 0) {
+        errorMsg.innerHTML = "No matching property found"
         errorMsg.style.setProperty("display", "block")
       
     }  
