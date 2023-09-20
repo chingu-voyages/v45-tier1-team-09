@@ -87,6 +87,7 @@ submitBtn.addEventListener('click', () => {
     if ( valid == "") {
         searchResults = searchData(meteorData, searchValues)
         updateTable(searchResults, allCheckbox)
+        allCheckbox.checked = false;
     } else {
         errorMsg.innerHTML = valid
         toggleVisibility(errorMsg, "block")
@@ -101,7 +102,7 @@ summaryBtn.addEventListener('click', () => {
     toggleVisibility(tableSection, "none")
     toggleVisibility(summarySection, "block")
     updateSummary()
-    histogramPlotPoints(meteorData)
+    histogramPlotPoints(searchResults)
 })
 
 // Utils 

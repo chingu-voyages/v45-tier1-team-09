@@ -13,7 +13,7 @@ export default function updateSummary(meteorData) {
 
         if (checkbox.checked) {
             totalHits++
-            if (size != NaN) {
+            if (!isNaN(size)) {
                 averageMass += size
                 averageTotal++
             }
