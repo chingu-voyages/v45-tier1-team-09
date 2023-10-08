@@ -74,7 +74,7 @@ Developers
 
 ## Demo
 
-You can find the demo [here](https://netlify.com)
+You can find the demo [here](https://chingu-voyages.github.io/v45-tier1-team-09/)
 
 ## About Chingu
 
